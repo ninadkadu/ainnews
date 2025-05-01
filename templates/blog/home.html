@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI News</title>
+</head>
+<body>
+    <h1>AI News Portal</h1>
+
+    <form method="get">
+        <input type="text" name="q" placeholder="Search..." />
+        <button type="submit">Search</button>
+    </form>
+
+    {% for article in articles %}
+        <div style="margin-bottom: 20px;">
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.content|truncatewords:30 }}</p>
+            <small>Tags: {{ article.tags }} | Posted on: {{ article.created_at }}</small>
+        </div>
+        <hr>
+    {% empty %}
+        <p>No articles found.</p>
+    {% endfor %}
+</body>
+</html>

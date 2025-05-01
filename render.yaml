@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ainnews
+    runtime: python
+    buildCommand: ""
+    startCommand: gunicorn ainnews.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: ainnews.settings
+      - key: PYTHON_VERSION
+        value: 3.11
